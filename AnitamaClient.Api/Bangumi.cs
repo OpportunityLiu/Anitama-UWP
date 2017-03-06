@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +55,40 @@ namespace AnitamaClient.Api
         [JsonProperty("originTime")]
         public TimeSpan? OriginPlayTime { get; internal set; }
 
+
+        [JsonProperty("mid")]
+        public int MId { get; internal set; }
+
+        [JsonProperty("wantedList")]
+        public IList<string> WantedEpisodeNumbers { get; } = new EpisodeNumberCollection();
+
+        [JsonProperty("episodeList")]
+        public IList<string> EpisodeNumbers { get; } = new EpisodeNumberCollection();
+
+        [JsonProperty("seenList")]
+        public IList<string> SeenEpisodeNumbers { get; } = new EpisodeNumberCollection();
+
+        [JsonProperty("watch")]
+        public bool Following { get; internal set; }
+
         int IPrimeryKey<int>.GetPrimeryKey() => this.Id;
+
+        private class EpisodeNumberCollection : Collection<string>
+        {
+            protected override void InsertItem(int index, string item)
+            {
+                if(string.IsNullOrEmpty(item))
+                    return;
+                base.InsertItem(index, item);
+            }
+
+            protected override void SetItem(int index, string item)
+            {
+                if(string.IsNullOrEmpty(item))
+                    this.RemoveAt(index);
+                else
+                    base.SetItem(index, item);
+            }
+        }
     }
 }

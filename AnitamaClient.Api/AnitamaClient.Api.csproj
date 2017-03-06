@@ -108,14 +108,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.cs" />
+    <Compile Include="Auth\AuthClient.cs" />
+    <Compile Include="Auth\AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bangumi.cs" />
     <Compile Include="Channel.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="DateTimeConverter.cs" />
+    <Compile Include="FollowingBangumi.cs" />
+    <Compile Include="JsonConverters\DateTimeConverter.cs" />
     <Compile Include="Episode.cs" />
     <Compile Include="FeedItem.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="IPrimeryKey.cs" />
+    <Compile Include="JsonConverters\TimeSpanConverter.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Page{TKey,TValue}.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +132,12 @@
     <Compile Include="Tag.cs" />
     <Compile Include="Topic.cs" />
     <EmbeddedResource Include="Properties\AnitamaClient.Api.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Auth\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

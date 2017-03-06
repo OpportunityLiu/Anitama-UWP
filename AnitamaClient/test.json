@@ -1,343 +1,87 @@
-﻿ {
-            "pageNo": 1,
-            "pageSize": 20,
-            "totalCount": 2931,
-            "list": [
-                {
-                    "entryType": "article",
-                    "aid": "101429f82cf5b1e5",
-                    "title": "日本动画监督的早期发展",
-                    "subtitle": "冰川龙介专访番外篇（一）",
-                    "author": "zyy",
-                    "origin": "Anitama",
-                    "intro": "冰川龙介专访番外篇-作家之异同第一篇。",
-                    "releaseDate": "2017-03-06T06:30:21+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/101429f82cf5b1e5/img/87b4d4-preview",
-                        "origin": "《顽皮王子战大蛇》",
-                        "cover": "http://cdn.animetamashi.cn/101429f82cf5b1e5/img/87b4d4-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "93440a554f5bdda3",
-                    "title": "刘婧荦专访（二）",
-                    "subtitle": "Anitama声优专访",
-                    "author": "录音笔",
-                    "origin": "Anitama",
-                    "intro": "作为一个外国人，在日本做职业声优比想象中的困难。",
-                    "releaseDate": "2017-03-06T06:15:25+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/93440a554f5bdda3/img/1eecdf-preview",
-                        "origin": "《侍灵演武》配音现场",
-                        "cover": "http://cdn.animetamashi.cn/93440a554f5bdda3/img/1eecdf-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "7dbbb704926e3e11",
-                    "title": "全裸待机！！",
-                    "subtitle": "Anitama新闻汇总",
-                    "author": "LIAR",
-                    "origin": "Anitama",
-                    "intro": "2017年3月5日新闻汇总",
-                    "releaseDate": "2017-03-06T06:00:17+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/7dbbb704926e3e11/img/ffdb7d-preview",
-                        "origin": "《银魂.》",
-                        "cover": "http://cdn.animetamashi.cn/7dbbb704926e3e11/img/ffdb7d-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "9ea5bda83bada069",
-                    "title": "2017年3月13~19日活动预览",
-                    "subtitle": "Anitama活动预览",
-                    "author": "矢泽露比",
-                    "origin": "Anitama",
-                    "intro": "2017年3月13日~19日活动预览。",
-                    "releaseDate": "2017-03-06T05:55:25+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/9ea5bda83bada069/img/2b01d5-preview",
-                        "origin": "ACTORS 3周年記念イベント in サンリオピューロランド",
-                        "cover": "http://cdn.animetamashi.cn/9ea5bda83bada069/img/2b01d5-cover"
-                    }
-                },
-                {
-                    "entryType": "guide",
-                    "title": "03月06日节目预告",
-                    "subtitle": "Anitama节目预告",
-                    "cover": "http://img.animetamashi.cn/guide/1395de-cover",
-                    "releaseDate": "2017-03-06T05:00:00+08:00"
-                },
-                {
-                    "entryType": "article",
-                    "aid": "87c86a47501d8cd7",
-                    "title": "为美好的世界献上欢笑！",
-                    "subtitle": "浅谈《为美好的世界献上祝福》第二季",
-                    "author": "lll、年糕",
-                    "origin": "Anitama",
-                    "intro": "《为美好的世界献上祝福》第二季在作画上愈加奔放，而是否就是观众所说的“作画崩坏”。",
-                    "releaseDate": "2017-03-05T06:25:41+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/87c86a47501d8cd7/img/55f78d-preview",
-                        "origin": "《为美好的世界献上祝福！》第二季OP",
-                        "cover": "http://cdn.animetamashi.cn/87c86a47501d8cd7/img/55f78d-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "e43abb62753337cb",
-                    "title": "东映与周日早间 六十六年的系谱（二十五）",
-                    "subtitle": "东映特摄的黎明",
-                    "author": "阿迪",
-                    "origin": "Anitama",
-                    "intro": "东映特摄的黎明，这说的不是东映特摄片的黎明，也不是东映超级英雄的黎明，超级英雄是题材、特摄是技术。",
-                    "releaseDate": "2017-03-05T06:10:22+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/e43abb62753337cb/img/72e371-preview",
-                        "origin": "《恶魔君》",
-                        "cover": "http://cdn.animetamashi.cn/e43abb62753337cb/img/72e371-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "b3d5220fe84aeb14",
-                    "title": "周末补片：废柴也有逆袭时",
-                    "subtitle": "四十二期《赌博默示录》",
-                    "author": "小死",
-                    "origin": "Anitama",
-                    "intro": "本次的周末补片就来介绍一下这部剧情有些烧脑的动画。",
-                    "releaseDate": "2017-03-05T06:10:21+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/b3d5220fe84aeb14/img/d5e8ed-preview",
-                        "origin": "《赌博破戒录》",
-                        "cover": "http://cdn.animetamashi.cn/b3d5220fe84aeb14/img/d5e8ed-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "65df2bda0930800d",
-                    "title": "这难道就是恋爱？！",
-                    "subtitle": "Anitama新闻汇总",
-                    "author": "LIAR",
-                    "origin": "Anitama",
-                    "intro": "2017年3月4日新闻汇总",
-                    "releaseDate": "2017-03-05T06:00:07+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/65df2bda0930800d/img/0151c1-preview",
-                        "origin": "《神击的巴哈姆特 VIRGIN SOUL》",
-                        "cover": "http://cdn.animetamashi.cn/65df2bda0930800d/img/0151c1-cover"
-                    }
-                },
-                {
-                    "entryType": "guide",
-                    "title": "03月05日节目预告",
-                    "subtitle": "Anitama节目预告",
-                    "cover": "http://img.animetamashi.cn/guide/be8556-cover",
-                    "releaseDate": "2017-03-05T05:00:00+08:00"
-                },
-                {
-                    "entryType": "article",
-                    "aid": "913a6bb8f6f5069a",
-                    "title": "《博人传》监督山下宏幸其人",
-                    "subtitle": "国人动画原画师黄成希专访（五）",
-                    "author": "lll",
-                    "origin": "Anitama",
-                    "intro": "谈谈山下宏幸及以后的目标。",
-                    "releaseDate": "2017-03-04T06:30:47+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/913a6bb8f6f5069a/img/01d6a5-preview",
-                        "origin": "黄成希习作",
-                        "cover": "http://cdn.animetamashi.cn/913a6bb8f6f5069a/img/01d6a5-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "e76b37dedb27c4cf",
-                    "title": "关于人物设计、系列构成、副监督等等的一些事",
-                    "subtitle": "“美少女”动画监督藤原佳幸谈《NEW GAME!》（三）",
-                    "author": "lll",
-                    "origin": "Anitama",
-                    "intro": "这期谈谈人物设计、系列构成、副监督等等一些工作。",
-                    "releaseDate": "2017-03-04T06:25:24+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/e76b37dedb27c4cf/img/d10b73-preview",
-                        "origin": "NEW GAME!",
-                        "cover": "http://cdn.animetamashi.cn/e76b37dedb27c4cf/img/d10b73-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "bed7653fc7a5fc17",
-                    "title": "怪兽王的咆哮",
-                    "subtitle": "第40届日本电影学院奖揭晓",
-                    "author": "LIAR",
-                    "origin": "Anitama",
-                    "intro": "第40届日本电影学院奖全奖项于昨晚揭晓。",
-                    "releaseDate": "2017-03-04T06:05:32+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/bed7653fc7a5fc17/img/fff7ae-preview",
-                        "origin": "USJ 哥斯拉 The Real 4D",
-                        "cover": "http://cdn.animetamashi.cn/bed7653fc7a5fc17/img/fff7ae-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "aeb0af2c0a901ea9",
-                    "title": "KISS NOTE",
-                    "subtitle": "Anitama新闻汇总",
-                    "author": "shanayoring",
-                    "origin": "Anitama",
-                    "intro": "2017年3月3日新闻汇总。",
-                    "releaseDate": "2017-03-04T06:00:24+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/aeb0af2c0a901ea9/img/78f616-preview",
-                        "origin": "《恋爱暴君》",
-                        "cover": "http://cdn.animetamashi.cn/aeb0af2c0a901ea9/img/78f616-cover"
-                    }
-                },
-                {
-                    "entryType": "guide",
-                    "title": "03月04日节目预告",
-                    "subtitle": "Anitama节目预告",
-                    "cover": "http://img.animetamashi.cn/guide/a004ed-cover",
-                    "releaseDate": "2017-03-04T05:00:00+08:00"
-                },
-                {
-                    "entryType": "article",
-                    "aid": "9bce9fccee77f0e4",
-                    "title": "寿司和戒指都应该自己花钱买",
-                    "subtitle": "Anitama新声",
-                    "author": "谢枫华",
-                    "origin": "Anitama",
-                    "intro": "漫画家箱ミネコ和演出家佐藤龙雄讨论动画黎明期女性观众的贡献。漫画家西原理惠子向广大年轻女性分享人生经验。",
-                    "releaseDate": "2017-03-03T21:00:42+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/9bce9fccee77f0e4/img/32e78c-preview",
-                        "origin": "《鲁邦三世 名为峰不二子的女人》",
-                        "cover": "http://cdn.animetamashi.cn/9bce9fccee77f0e4/img/32e78c-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "8a24b88c0b6a7857",
-                    "title": "小林裕介专访（一）",
-                    "subtitle": "Anitama声优专访",
-                    "author": "神秘嘉宾",
-                    "origin": "Anitama",
-                    "intro": "在Anitama专访里，小林裕介将会为我们畅谈自己从公司职员转职成为声优的独特经历，无名时代的内心支柱，还有作为一名声优的信条等。",
-                    "releaseDate": "2017-03-03T06:30:12+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/8a24b88c0b6a7857/img/f56251-preview",
-                        "origin": "小林裕介",
-                        "cover": "http://cdn.animetamashi.cn/8a24b88c0b6a7857/img/f56251-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "62eb1c605011c57b",
-                    "title": "暗夜疾走，黑夜中绽放的义盗之花",
-                    "subtitle": "日剧《江户盗贼团双雄》推介",
-                    "author": "LIAR",
-                    "origin": "Anitama",
-                    "intro": "借着《鬼平》掀起的时代剧热潮以及上周《周末补片》栏目中介绍到的《江户盗贼团五叶》，本次我们再来向大家推荐一部“义盗传奇故事”——《江户盗贼团双雄》。",
-                    "releaseDate": "2017-03-03T06:20:31+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/62eb1c605011c57b/img/569d50-preview",
-                        "origin": "《江户盗贼团双雄》",
-                        "cover": "http://cdn.animetamashi.cn/62eb1c605011c57b/img/569d50-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "362846afd9a034b7",
-                    "title": "战队毕业后的生涯（中）",
-                    "subtitle": "美版战队历史回顾（十六）",
-                    "author": "MA",
-                    "origin": "Anitama",
-                    "intro": "继续说战队成员离队后的生活和事业发展。",
-                    "releaseDate": "2017-03-03T06:15:46+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/362846afd9a034b7/img/3d62d6-preview",
-                        "origin": "《恐龙战队》",
-                        "cover": "http://cdn.animetamashi.cn/362846afd9a034b7/img/3d62d6-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "b1e2319a304381ee",
-                    "title": "最初的相遇",
-                    "subtitle": "Anitama新闻汇总",
-                    "author": "shanayoring",
-                    "origin": "Anitama",
-                    "intro": "2017年3月2日新闻汇总。",
-                    "releaseDate": "2017-03-03T06:00:42+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/b1e2319a304381ee/img/bc764f-preview",
-                        "origin": "《剧场版 精灵宝可梦 就决定是你了！》",
-                        "cover": "http://cdn.animetamashi.cn/b1e2319a304381ee/img/bc764f-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "d6f9079d1bc889f0",
-                    "title": "b站启动维权计划",
-                    "subtitle": "打击视频盗搬保护原创up主权益",
-                    "author": "bilibili",
-                    "origin": "Anitama",
-                    "intro": "2017年3月3日，b站为保护up主权益开展了一项维权计划，意在打击不良营销号的非法盗搬行为",
-                    "releaseDate": "2017-03-03T05:00:55+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/d6f9079d1bc889f0/img/605916-preview",
-                        "origin": "b站维权计划",
-                        "cover": "http://cdn.animetamashi.cn/d6f9079d1bc889f0/img/605916-cover"
-                    }
-                },
-                {
-                    "entryType": "guide",
-                    "title": "03月03日节目预告",
-                    "subtitle": "Anitama节目预告",
-                    "cover": "http://img.animetamashi.cn/guide/eedaf4-cover",
-                    "releaseDate": "2017-03-03T05:00:00+08:00"
-                },
-                {
-                    "entryType": "article",
-                    "aid": "c62c654ae8203076",
-                    "title": "偶像的妈妈的偶像",
-                    "subtitle": "Anitama新声",
-                    "author": "谢枫华",
-                    "origin": "Anitama",
-                    "intro": "网络八卦、言论、趣闻集锦。",
-                    "releaseDate": "2017-03-02T21:00:54+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/c62c654ae8203076/img/1e41a4-preview",
-                        "origin": "《LoveLive！》",
-                        "cover": "http://cdn.animetamashi.cn/c62c654ae8203076/img/1e41a4-cover"
-                    }
-                },
-                {
-                    "entryType": "article",
-                    "aid": "642383a519c6b85f",
-                    "title": "2017年2月精彩作画集锦及笔记",
-                    "subtitle": "2017年2月MAD",
-                    "author": "lll",
-                    "origin": "Anitama",
-                    "intro": "2017年2月精彩作画集锦及笔记",
-                    "releaseDate": "2017-03-02T08:00:11+08:00",
-                    "cover": {
-                        "url": "http://cdn.animetamashi.cn/642383a519c6b85f/img/4df97b-preview",
-                        "origin": "光之美少女食尚甜心",
-                        "cover": "http://cdn.animetamashi.cn/642383a519c6b85f/img/4df97b-cover"
-                    }
-                },
-                {
-                    "entryType": "guide",
-                    "title": "03月02日节目预告",
-                    "subtitle": "Anitama节目预告",
-                    "cover": "http://img.animetamashi.cn/guide/025f46-cover",
-                    "releaseDate": "2017-03-02T05:00:00+08:00"
-                }
-            ],
-            "start": 0
-        }
+﻿[
+    {
+        "mid": 28495,
+        "bid": 323,
+        "cover": "http://img.animetamashi.cn/guide/b42bc2",
+        "wantedList": [
+            ""
+        ],
+        "verticalCover": "http://img.animetamashi.cn/guide/25be8c",
+        "playUrl": "http://www.tudou.com/albumcover/wnO-obHBRcc.html",
+        "title": "为美好的世界献上祝福!2",
+        "episodeList": [
+            "9",
+            "8",
+            "7",
+            "6",
+            "5",
+            "4",
+            "3",
+            "2",
+            "1"
+        ],
+        "seenList": [
+            ""
+        ],
+        "watch": true
+    },
+    {
+        "mid": 28496,
+        "bid": 324,
+        "cover": "http://img.animetamashi.cn/guide/14b1c2",
+        "wantedList": [
+            ""
+        ],
+        "verticalCover": "http://img.animetamashi.cn/guide/0c19b4",
+        "playUrl": "http://bangumi.bilibili.com/anime/5800",
+        "title": "小林家的龙女仆",
+        "episodeList": [
+            "9",
+            "8",
+            "7",
+            "6",
+            "5",
+            "4",
+            "3",
+            "2",
+            "1"
+        ],
+        "seenList": [
+            "8"
+        ],
+        "watch": true
+    },
+    {
+        "mid": 28481,
+        "bid": 319,
+        "cover": "http://img.animetamashi.cn/guide/67621c",
+        "wantedList": [
+            ""
+        ],
+        "verticalCover": "http://img.animetamashi.cn/guide/e15657",
+        "playUrl": "http://bangumi.bilibili.com/anime/5793",
+        "title": "珈百璃的堕落",
+        "episodeList": [
+            "9",
+            "8",
+            "7",
+            "6",
+            "5",
+            "4",
+            "3",
+            "2",
+            "1"
+        ],
+        "seenList": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "6",
+            "8"
+        ],
+        "watch": true
+    }
+]

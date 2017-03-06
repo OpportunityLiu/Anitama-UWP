@@ -73,6 +73,12 @@ namespace AnitamaClient
             }
         }
 
+        protected override void OnFileActivated(FileActivatedEventArgs args)
+        {
+            Api.AuthClient.HandleWeChatCallback(args);
+            Window.Current.Activate();
+        }
+
         /// <summary>
         /// 导航到特定页失败时调用
         /// </summary>

@@ -35,7 +35,6 @@ namespace AnitamaClient.Api
         public string Introduction { get; internal set; }
 
         [JsonProperty("releaseDate")]
-        [JsonConverter(typeof(DateTimeConverter))]
         public DateTimeOffset? ReleaseDate { get; internal set; }
 
         [JsonProperty("cover")]

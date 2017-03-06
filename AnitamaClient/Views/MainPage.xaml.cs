@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using AnitamaClient.Api;
 using Newtonsoft.Json;
+using MicroMsg.sdk;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -27,16 +28,6 @@ namespace AnitamaClient
         public MainPage()
         {
             this.InitializeComponent();
-            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
-            {
-                DateFormatHandling = DateFormatHandling.IsoDateFormat,
-                DateParseHandling = DateParseHandling.None,
-                Converters =
-                {
-                    new DateTimeConverter(),
-                    new TimeSpanConverter()
-                }
-            };
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -44,7 +35,19 @@ namespace AnitamaClient
             base.OnNavigatedTo(e);
             var f = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///test.json"));
             var s = await Windows.Storage.FileIO.ReadTextAsync(f);
-            var c = JsonConvert.DeserializeObject<ListPage<FeedItem>>(s);
+            var c = JsonConvert.DeserializeObject<List<Bangumi>>(s,Client.jsonSettings);
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var a = await Api.AuthClient.FetchAsync();
+            a.WeiboAuth(this.Frame);
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var a = await Api.AuthClient.FetchAsync();
+            a.WeChatAuth(this.Frame);
         }
     }
 }
