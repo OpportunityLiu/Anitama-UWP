@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AnitamaClient.Api
 {
-    public class Class1
+    public interface IPrimeryKey<T>
     {
+        T GetPrimeryKey();
     }
 }

@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using AnitamaClient.Api;
+using Newtonsoft.Json;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -25,6 +27,24 @@ namespace AnitamaClient
         public MainPage()
         {
             this.InitializeComponent();
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            {
+                DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                DateParseHandling = DateParseHandling.None,
+                Converters =
+                {
+                    new DateTimeConverter(),
+                    new TimeSpanConverter()
+                }
+            };
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            var f = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///test.json"));
+            var s = await Windows.Storage.FileIO.ReadTextAsync(f);
+            var c = JsonConvert.DeserializeObject<ListPage<FeedItem>>(s);
         }
     }
 }
