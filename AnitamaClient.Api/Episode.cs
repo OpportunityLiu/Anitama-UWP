@@ -10,6 +10,7 @@ namespace AnitamaClient.Api
 {
 
     [System.Diagnostics.DebuggerDisplay(@"Episode\{ Bangumi={Bangumi?.Title} Name={Name} \}")]
+    [JsonObject(MemberSerialization.OptIn)]
     public class Episode
     {
         [JsonConstructor]

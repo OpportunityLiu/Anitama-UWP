@@ -35,7 +35,7 @@ namespace AnitamaClient
             base.OnNavigatedTo(e);
             var f = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///test.json"));
             var s = await Windows.Storage.FileIO.ReadTextAsync(f);
-            var c = JsonConvert.DeserializeObject<List<Bangumi>>(s,Client.jsonSettings);
+            var c = JsonConvert.DeserializeObject<Splash>(s,Client.jsonSettings);
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)

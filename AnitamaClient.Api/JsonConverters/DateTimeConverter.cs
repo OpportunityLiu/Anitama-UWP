@@ -15,7 +15,7 @@ namespace AnitamaClient.Api.JsonConverters
         {
             "yyyyMMdd"
         };
-        private static readonly System.Globalization.DateTimeStyles style = System.Globalization.DateTimeStyles.AssumeLocal | System.Globalization.DateTimeStyles.AllowWhiteSpaces | System.Globalization.DateTimeStyles.NoCurrentDateDefault;
+        private const System.Globalization.DateTimeStyles style = System.Globalization.DateTimeStyles.AssumeLocal | System.Globalization.DateTimeStyles.AllowWhiteSpaces | System.Globalization.DateTimeStyles.NoCurrentDateDefault;
         private static readonly IFormatProvider formatProvider = new System.Globalization.CultureInfo("zh-Hans-cn");
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

@@ -36,7 +36,8 @@ namespace AnitamaClient.Api
             Converters =
             {
                 new JsonConverters.DateTimeConverter(),
-                new JsonConverters.TimeSpanConverter()
+                new JsonConverters.TimeSpanConverter(),
+                new JsonConverters.ColorConverter()
             }
         };
 
@@ -72,14 +73,7 @@ namespace AnitamaClient.Api
                 var str = await resp.Content.ReadAsStringAsync();
                 var res = JsonConvert.DeserializeObject<Response<TData>>(str, jsonSettings);
                 if(!res.Success)
-                    throw new Exception(res.Info)
-                    {
-                        Data =
-                        {
-                            ["Info"]=res.Info,
-                            ["Status"]=res.Status
-                        }
-                    };
+                    throw AnitamaServerException.Create(res);
                 return res.Data;
             });
         }

@@ -59,11 +59,11 @@ namespace AnitamaClient.Api
         [JsonProperty("mid")]
         public int MId { get; internal set; }
 
-        [JsonProperty("wantedList")]
-        public IList<string> WantedEpisodeNumbers { get; } = new EpisodeNumberCollection();
-
         [JsonProperty("episodeList")]
         public IList<string> EpisodeNumbers { get; } = new EpisodeNumberCollection();
+
+        [JsonProperty("wantedList")]
+        public IList<string> WantedEpisodeNumbers { get; } = new EpisodeNumberCollection();
 
         [JsonProperty("seenList")]
         public IList<string> SeenEpisodeNumbers { get; } = new EpisodeNumberCollection();
@@ -73,7 +73,7 @@ namespace AnitamaClient.Api
 
         int IPrimeryKey<int>.GetPrimeryKey() => this.Id;
 
-        private class EpisodeNumberCollection : Collection<string>
+        private sealed class EpisodeNumberCollection : Collection<string>
         {
             protected override void InsertItem(int index, string item)
             {

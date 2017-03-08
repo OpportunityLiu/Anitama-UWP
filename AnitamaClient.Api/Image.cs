@@ -12,7 +12,7 @@ namespace AnitamaClient.Api
     [JsonConverter(typeof(ImageConverter))]
     public class Image
     {
-        public string Origin { get; private set; }
+        public string Origin { get; internal set; }
 
         public Uri RawUri { get; private set; }
 

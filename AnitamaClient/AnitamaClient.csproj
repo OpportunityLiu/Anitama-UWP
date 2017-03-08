@@ -109,11 +109,16 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Splashes\Splash.png" />
+    <Content Include="Assets\Splashes\SplashScreen.scale-100.png" />
+    <Content Include="Assets\Splashes\SplashScreen.scale-125.png" />
+    <Content Include="Assets\Splashes\SplashScreen.scale-150.png" />
+    <Content Include="Assets\Splashes\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Splashes\SplashScreen.scale-400.png" />
     <Content Include="test.json" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
@@ -137,6 +142,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Assets\Tiles\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
