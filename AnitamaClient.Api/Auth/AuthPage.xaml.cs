@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Web.Http;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -45,6 +46,7 @@ namespace AnitamaClient.Api.Auth
                 this.bdProgress.Visibility = Visibility.Visible;
                 args.Cancel = true;
                 await GetAsync(args.Uri);
+                Client.Current.SetLogOnData();
                 this.Frame.GoBack();
                 this.bdProgress.Visibility = Visibility.Collapsed;
             }
@@ -53,11 +55,14 @@ namespace AnitamaClient.Api.Auth
         public override async void OnSendAuthResponse(SendAuth.Resp response)
         {
             this.bdProgress.Visibility = Visibility.Visible;
-            //app.anitama.net/auth/web/wechat?code=0213r0141RB3XN1WeRZ31R9T0413r01V&state=debug:false,from:m,b5871053ad90a323
             if(response.ErrCode != 0)
                 throw new WXException(response.ErrCode, response.ErrStr);
-            var uri = new Uri($"https://app.anitama.net/auth/web/wechat?code={response.Code}&state={response.State}");
-            await GetAsync(uri);
+            IEnumerable<KeyValuePair<string, string>> getParam()
+            {
+                yield return new KeyValuePair<string, string>("code", response.Code);
+            }
+            var data = await Client.Current.PostAsync<WechatAuthData>(new Uri("https://app.anitama.net/auth/wechat"), new HttpFormUrlEncodedContent(getParam()));
+            Client.Current.SetLogOnData(data.UId, data.Token, data.ExpireAt);
             this.Frame?.GoBack();
             this.bdProgress.Visibility = Visibility.Collapsed;
         }

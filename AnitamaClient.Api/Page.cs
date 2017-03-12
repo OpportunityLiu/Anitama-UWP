@@ -20,13 +20,17 @@ namespace AnitamaClient.Api
         [JsonProperty("totalCount")]
         public int TotalCount { get; private set; }
 
+        [JsonIgnore]
+        public int PageCount 
+            => this.TotalCount / this.Capacity + (this.TotalCount % this.Capacity == 0 ? 0 : 1);
+
         [JsonProperty("start")]
         public int StartIndex { get; private set; }
 
         [JsonProperty("list")]
         public abstract IList<TValue> Values { get; }
     }
-
+    
     public class ListPage<TValue> : Page<TValue>
     {
         public override IList<TValue> Values { get; } = new List<TValue>();

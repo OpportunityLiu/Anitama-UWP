@@ -24,7 +24,7 @@
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="wechat">
             <uap:SupportedFileTypes>
-              <uap:FileType>.wx677a3b32b42faa7e</uap:FileType>
+              <uap:FileType>.wx2d00f7c30f52d4aa</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>

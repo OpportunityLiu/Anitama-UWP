@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26206.0
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnitamaClient", "AnitamaClient\AnitamaClient.csproj", "{864A8B35-855C-49C5-81D8-6B10392A1AEA}"
 EndProject
@@ -9,17 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnitamaClient.Api", "Anitam
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
-		Release|Any CPU = Release|Any CPU
 		Release|ARM = Release|ARM
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Debug|ARM.ActiveCfg = Debug|ARM
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Debug|ARM.Build.0 = Debug|ARM
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -29,7 +26,6 @@ Global
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Debug|x86.ActiveCfg = Debug|x86
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Debug|x86.Build.0 = Debug|x86
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Debug|x86.Deploy.0 = Debug|x86
-		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Release|Any CPU.ActiveCfg = Release|x86
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Release|ARM.ActiveCfg = Release|ARM
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Release|ARM.Build.0 = Release|ARM
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Release|ARM.Deploy.0 = Release|ARM
@@ -39,16 +35,12 @@ Global
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Release|x86.ActiveCfg = Release|x86
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Release|x86.Build.0 = Release|x86
 		{864A8B35-855C-49C5-81D8-6B10392A1AEA}.Release|x86.Deploy.0 = Release|x86
-		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|ARM.ActiveCfg = Debug|ARM
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|ARM.Build.0 = Debug|ARM
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|x64.ActiveCfg = Debug|x64
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|x64.Build.0 = Debug|x64
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|x86.ActiveCfg = Debug|x86
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Debug|x86.Build.0 = Debug|x86
-		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Release|ARM.ActiveCfg = Release|ARM
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Release|ARM.Build.0 = Release|ARM
 		{3AB099FC-AD2D-4224-9F91-1ADB7CF90E2B}.Release|x64.ActiveCfg = Release|x64

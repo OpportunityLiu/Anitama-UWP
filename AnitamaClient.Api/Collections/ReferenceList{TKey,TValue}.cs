@@ -11,52 +11,70 @@ namespace AnitamaClient.Api.Collections
     public class ReferenceList<TKey, TValue> : IList<TValue>, IReadOnlyList<TValue>
         where TValue : class, IPrimeryKey<TKey>
     {
+        private static ReferenceDictionary<TKey, TValue> reference = References.Get<TKey, TValue>();
+
         [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Collapsed)]
-        private List<TKey> keys = new List<TKey>();
-        [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Collapsed)]
-        private ReferenceDictionary<TKey, TValue> reference = References.Get<TKey, TValue>();
+        protected List<TKey> Keys { get; } = new List<TKey>();
 
         [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.RootHidden)]
         public TValue this[int index]
         {
-            get => this.reference[this.keys[index]];
+            get => reference[this.Keys[index]];
             set
             {
                 if(value == null)
-                    throw new ArgumentNullException(nameof(value));
-                this.keys[index] = value.GetPrimeryKey();
-                this.reference.Add(value);
+                    return;
+                SetItem(index, value);
             }
         }
 
-        public int Count => this.keys.Count;
+        public int Count => this.Keys.Count;
 
         [System.Diagnostics.DebuggerBrowsable(System.Diagnostics.DebuggerBrowsableState.Never)]
         public bool IsReadOnly => false;
 
+        protected virtual void InsertItem(int index, TValue item)
+        {
+            this.Keys.Insert(index, reference.Add(item));
+        }
+
+        protected virtual void SetItem(int index, TValue item)
+        {
+            this.Keys[index] = reference.Add(item);
+        }
+
+        protected virtual void RemoveItem(int index)
+        {
+            this.Keys.RemoveAt(index);
+        }
+
+        protected virtual void ClearItems()
+        {
+            this.Keys.Clear();
+        }
+
         public void Add(TValue item)
         {
             if(item == null)
-                throw new ArgumentNullException(nameof(item));
-            this.keys.Add(item.GetPrimeryKey());
-            this.reference.Add(item);
+                return;
+            InsertItem(this.Count, item);
         }
 
         public void Clear()
         {
-            this.keys.Clear();
+            ClearItems();
         }
 
         public bool Contains(TValue item)
         {
             if(item == null)
                 return false;
-            return this.keys.Contains(item.GetPrimeryKey());
+            return this.Keys.Contains(item.GetPrimeryKey());
         }
 
         public void CopyTo(TValue[] array, int arrayIndex)
         {
-            for(var i = 0; i < array.Length - arrayIndex && i < this.keys.Count; i++)
+            for(var i = 0; i < array.Length - arrayIndex && i < this.Keys.Count; i++)
             {
                 array[arrayIndex + i] = this[i];
             }
@@ -64,9 +82,9 @@ namespace AnitamaClient.Api.Collections
 
         public IEnumerator<TValue> GetEnumerator()
         {
-            foreach(var item in this.keys)
+            foreach(var item in this.Keys)
             {
-                yield return this.reference[item];
+                yield return reference[item];
             }
         }
 
@@ -74,27 +92,31 @@ namespace AnitamaClient.Api.Collections
         {
             if(item == null)
                 return -1;
-            return this.keys.IndexOf(item.GetPrimeryKey());
+            return this.Keys.IndexOf(item.GetPrimeryKey());
         }
 
         public void Insert(int index, TValue item)
         {
             if(item == null)
-                throw new ArgumentNullException(nameof(item));
-            this.keys.Insert(index, item.GetPrimeryKey());
-            this.reference.Add(item);
+                return;
+            InsertItem(index, item);
         }
 
         public bool Remove(TValue item)
         {
             if(item == null)
                 return false;
-            return this.keys.Remove(item.GetPrimeryKey());
+            var pk = item.GetPrimeryKey();
+            var index = this.Keys.FindIndex(k => Equals(k, pk));
+            if(index < 0)
+                return false;
+            RemoveItem(index);
+            return true;
         }
 
         public void RemoveAt(int index)
         {
-            this.keys.RemoveAt(index);
+            RemoveItem(index);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

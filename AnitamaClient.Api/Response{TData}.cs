@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace AnitamaClient.Api
 {
+    [System.Diagnostics.DebuggerDisplay(@"\{Success={Success} Info={Info} Status={Status}\}")]
     public class Response<TData>
     {
+        public Response() { }
+
+        public Response(TData data)
+        {
+            this.Data = data;
+        }
+
         [JsonProperty("success")]
         public bool Success { get; private set; }
 
@@ -18,7 +26,7 @@ namespace AnitamaClient.Api
         [JsonProperty("status")]
         public int Status { get; private set; }
 
-        [JsonProperty("data")]
+        [JsonProperty("data", ObjectCreationHandling = ObjectCreationHandling.Auto)]
         public TData Data { get; private set; }
     }
 }

@@ -44,9 +44,8 @@ namespace AnitamaClient.Api
             currentFrame = new WeakReference<Frame>(frame);
             if(Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Mobile")
             {
-                var query = UrlToData(this.WeChat).ToDictionary(kv => kv.Key, kv => kv.Value);
-                var req = new SendAuth.Req(query["scope"], query["state"]);
-                var api = WXAPIFactory.CreateWXAPI("wx677a3b32b42faa7e");
+                var req = new SendAuth.Req("snsapi_userinfo", "wechat");
+                var api = WXAPIFactory.CreateWXAPI("wx2d00f7c30f52d4aa");
                 var isValid = await api.SendReq(req);
             }
         }

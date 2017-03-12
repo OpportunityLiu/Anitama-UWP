@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation;
+using static System.Runtime.InteropServices.WindowsRuntime.AsyncInfo;
 
 namespace AnitamaClient.Api
 {
@@ -15,6 +17,12 @@ namespace AnitamaClient.Api
         public Article([JsonProperty("aid")]string id)
         {
             this.Id = id;
+        }
+
+        public IAsyncOperation<ArticleData> FetchDataAsync()
+        {
+            var data = new ArticleData(this);
+            return Client.Current.GetAsync($"article/{this.Id}", data);
         }
         
         public string Id { get; }

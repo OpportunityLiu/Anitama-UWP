@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using AnitamaClient.Api.Collections;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnitamaClient.Api
 {
@@ -15,6 +13,9 @@ namespace AnitamaClient.Api
         internal Bangumi([JsonProperty("bid")]int id)
         {
             this.Id = id;
+            this.SeenEpisodes = new EpisodeList(this);
+            this.RemindedEpisodes = new EpisodeList(this);
+            this.Episodes = new EpisodeList(this);
         }
 
         public int Id { get; }
@@ -44,7 +45,7 @@ namespace AnitamaClient.Api
         public string PlayWeekday { get; internal set; }
 
         [JsonProperty("playTime")]
-        public TimeSpan? PlayTime { get; internal set; }
+        public string PlayTime { get; internal set; }
 
         [JsonProperty("originStation")]
         public string OriginStationName { get; internal set; }
@@ -53,41 +54,72 @@ namespace AnitamaClient.Api
         public string OriginWeekday { get; internal set; }
 
         [JsonProperty("originTime")]
-        public TimeSpan? OriginPlayTime { get; internal set; }
+        public string OriginPlayTime { get; internal set; }
 
 
         [JsonProperty("mid")]
         public int MId { get; internal set; }
 
-        [JsonProperty("episodeList")]
-        public IList<string> EpisodeNumbers { get; } = new EpisodeNumberCollection();
+        [JsonProperty("episodeList", ItemConverterType = typeof(EpisodeConverter))]
+        public IList<Episode> Episodes { get; }
 
-        [JsonProperty("wantedList")]
-        public IList<string> WantedEpisodeNumbers { get; } = new EpisodeNumberCollection();
+        [JsonProperty("wantedList", ItemConverterType = typeof(EpisodeConverter))]
+        public IList<Episode> RemindedEpisodes { get; }
 
-        [JsonProperty("seenList")]
-        public IList<string> SeenEpisodeNumbers { get; } = new EpisodeNumberCollection();
+        [JsonProperty("seenList", ItemConverterType = typeof(EpisodeConverter))]
+        public IList<Episode> SeenEpisodes { get; }
 
         [JsonProperty("watch")]
         public bool Following { get; internal set; }
 
         int IPrimeryKey<int>.GetPrimeryKey() => this.Id;
 
-        private sealed class EpisodeNumberCollection : Collection<string>
+        private class EpisodeList : ReferenceList<EpisodeKey, Episode>
         {
-            protected override void InsertItem(int index, string item)
+            private readonly Bangumi parent;
+
+            public EpisodeList(Bangumi parent)
             {
-                if(string.IsNullOrEmpty(item))
+                this.parent = parent;
+            }
+
+            protected override void InsertItem(int index, Episode item)
+            {
+                if(this.Keys.FindIndex(e => e.ENo == item.Number) > 0)
                     return;
+                item.Bangumi = this.parent;
+                item = References.Episodes[((IPrimeryKey<EpisodeKey>)item).GetPrimeryKey()] ?? item;
                 base.InsertItem(index, item);
             }
 
-            protected override void SetItem(int index, string item)
+            protected override void SetItem(int index, Episode item)
             {
-                if(string.IsNullOrEmpty(item))
-                    this.RemoveAt(index);
-                else
-                    base.SetItem(index, item);
+                if(this.Keys.FindIndex(e => e.ENo == item.Number) > 0)
+                    return;
+                item.Bangumi = this.parent;
+                item = References.Episodes[((IPrimeryKey<EpisodeKey>)item).GetPrimeryKey()] ?? item;
+                base.SetItem(index, item);
+            }
+        }
+
+        private class EpisodeConverter : JsonConverter
+        {
+            public override bool CanConvert(Type objectType)
+            {
+                return objectType == typeof(Episode);
+            }
+
+            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+            {
+                var value = reader.Value.ToString();
+                if(string.IsNullOrEmpty(value))
+                    return null;
+                return new Episode(value);
+            }
+
+            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+            {
+                throw new NotImplementedException();
             }
         }
     }

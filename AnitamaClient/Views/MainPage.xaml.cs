@@ -30,24 +30,58 @@ namespace AnitamaClient
             this.InitializeComponent();
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var f = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///test.json"));
-            var s = await Windows.Storage.FileIO.ReadTextAsync(f);
-            var c = JsonConvert.DeserializeObject<Splash>(s,Client.jsonSettings);
-        }
-
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var a = await Api.AuthClient.FetchAsync();
-            a.WeiboAuth(this.Frame);
-        }
-
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            var a = await Api.AuthClient.FetchAsync();
-            a.WeChatAuth(this.Frame);
+            this.lv.ItemsSource = new Timeline();
+            var o  =JsonConvert.DeserializeObject<Bangumi>(@"{
+            ""mid"": 28641,
+            ""bid"": 249,
+            ""cover"": ""http://img.animetamashi.cn/guide/e94c7e"",
+            ""wantedList"": [
+                ""23""
+            ],
+            ""verticalCover"": ""http://img.animetamashi.cn/bangumi/249/vertical"",
+            ""playUrl"": ""http://bangumi.bilibili.com/anime/5809"",
+            ""title"": ""黑白来看守所"",
+            ""episodeList"": [
+                ""23"",
+                ""22"",
+                ""21"",
+                ""20"",
+                ""19"",
+                ""18"",
+                ""17"",
+                ""16"",
+                ""15"",
+                ""14"",
+                ""13"",
+                ""12"",
+                ""11"",
+                ""10"",
+                ""9"",
+                ""8"",
+                ""7"",
+                ""6"",
+                ""5"",
+                ""4"",
+                ""3"",
+                ""2"",
+                ""1""
+            ],
+            ""seenList"": [
+                """"
+            ],
+            ""watch"": true,
+            ""episode"": ""第23集"",
+            ""playDate"": ""20170308"",
+            ""originWeekday"": ""每周三"",
+            ""playWeekday"": ""每周三"",
+            ""playSite"": ""bilibili"",
+            ""originStation"": ""d-anime store"",
+            ""playTime"": ""11:00"",
+            ""originTime"": ""11:00""
+        }", Client.jsonSettings);
         }
     }
 }

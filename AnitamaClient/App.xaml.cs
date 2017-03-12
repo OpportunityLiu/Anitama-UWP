@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Threading;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace AnitamaClient
         public App()
         {
             this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            this.Suspending += this.OnSuspending;
         }
 
         /// <summary>
@@ -39,18 +40,32 @@ namespace AnitamaClient
         /// <param name="e">有关启动请求和过程的详细信息。</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+#if DEBUG
+            if(System.Diagnostics.Debugger.IsAttached)
+            {
+                this.DebugSettings.EnableFrameRateCounter = true;
+                //this.DebugSettings.IsOverdrawHeatMapEnabled = true;
+                //this.DebugSettings.IsTextPerformanceVisualizationEnabled = true;
+            }
+#endif
+            launchCore(e, e.Arguments);
+        }
+
+        private void launchCore(IActivatedEventArgs e, string arguments)
+        {
+            DispatcherHelper.Initialize();
             var rootFrame = Window.Current.Content as Frame;
 
             // 不要在窗口已包含内容时重复应用程序初始化，
             // 只需确保窗口处于活动状态
-            if (rootFrame == null)
+            if(rootFrame == null)
             {
                 // 创建要充当导航上下文的框架，并导航到第一页
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += this.OnNavigationFailed;
 
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                if(e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: 从之前挂起的应用程序加载状态
                 }
@@ -59,14 +74,14 @@ namespace AnitamaClient
                 Window.Current.Content = rootFrame;
             }
 
-            if (e.PrelaunchActivated == false)
+            if((e as IPrelaunchActivatedEventArgs)?.PrelaunchActivated != true)
             {
-                if (rootFrame.Content == null)
+                if(rootFrame.Content == null)
                 {
                     // 当导航堆栈尚未还原时，导航到第一页，
                     // 并通过将所需信息作为导航参数传入来配置
                     // 参数
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(MainPage), arguments);
                 }
                 // 确保当前窗口处于活动状态
                 Window.Current.Activate();
@@ -75,8 +90,8 @@ namespace AnitamaClient
 
         protected override void OnFileActivated(FileActivatedEventArgs args)
         {
+            launchCore(args, null);
             Api.AuthClient.HandleWeChatCallback(args);
-            Window.Current.Activate();
         }
 
         /// <summary>

@@ -29,10 +29,12 @@ namespace AnitamaClient.Api
             switch(entryType)
             {
             case EntryType.Article:
-                this.Link = new Uri($"anitama://article/{aid}");
                 var a = Collections.References.Articles[aid];
                 if(a == null)
+                {
                     a = new Article(aid);
+                    Collections.References.Articles.Add(a);
+                }
                 a.Title = title;
                 a.Subtitle = subtitle;
                 a.Cover = cover;
@@ -40,25 +42,27 @@ namespace AnitamaClient.Api
                 a.Author = author;
                 a.Origin = origin;
                 a.Introduction = intro;
-                Collections.References.Articles.Add(a);
+                this.Item = a;
                 break;
             case EntryType.Guide:
-                this.Link = new Uri($"anitama://guide/{releaseDate:yyyyMMdd}");
+                var g = new Guide(releaseDate);
+                g.PopulateAsync();
+                this.Item = g;
                 break;
             }
         }
 
-        public EntryType EntryType { get; private set; }
+        public EntryType EntryType { get; }
 
-        public string Title { get; private set; }
+        public string Title { get; }
 
-        public string Subtitle { get; private set; }
+        public string Subtitle { get; }
 
-        public Image Cover { get; private set; }
+        public Image Cover { get; }
 
-        public DateTimeOffset ReleaseDate { get; private set; }
+        public DateTimeOffset ReleaseDate { get; }
 
-        public Uri Link { get; private set; }
+        public object Item { get; }
     }
 
     public enum EntryType
