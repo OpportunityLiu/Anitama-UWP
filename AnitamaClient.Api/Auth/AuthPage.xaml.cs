@@ -47,6 +47,7 @@ namespace AnitamaClient.Api.Auth
                 args.Cancel = true;
                 await GetAsync(args.Uri);
                 Client.Current.SetLogOnData();
+                await Client.Current.GetAsync<WechatAuthData>("member/specialGift");
                 this.Frame.GoBack();
                 this.bdProgress.Visibility = Visibility.Collapsed;
             }
@@ -63,6 +64,7 @@ namespace AnitamaClient.Api.Auth
             }
             var data = await Client.Current.PostAsync<WechatAuthData>(new Uri("https://app.anitama.net/auth/wechat"), new HttpFormUrlEncodedContent(getParam()));
             Client.Current.SetLogOnData(data.UId, data.Token, data.ExpireAt);
+            await Client.Current.GetAsync<WechatAuthData>("member/specialGift");
             this.Frame?.GoBack();
             this.bdProgress.Visibility = Visibility.Collapsed;
         }

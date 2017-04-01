@@ -18,7 +18,7 @@ using MicroMsg.sdk;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
-namespace AnitamaClient
+namespace AnitamaClient.Views
 {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
@@ -34,7 +34,7 @@ namespace AnitamaClient
         {
             base.OnNavigatedTo(e);
             this.lv.ItemsSource = new Timeline();
-            var o  =JsonConvert.DeserializeObject<Bangumi>(@"{
+            var o = JsonConvert.DeserializeObject<Bangumi>(@"{
             ""mid"": 28641,
             ""bid"": 249,
             ""cover"": ""http://img.animetamashi.cn/guide/e94c7e"",
@@ -82,6 +82,24 @@ namespace AnitamaClient
             ""playTime"": ""11:00"",
             ""originTime"": ""11:00""
         }", Client.jsonSettings);
+        }
+
+        private void lv_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            switch(((FeedItem)e.ClickedItem).Item)
+            {
+            case Article article:
+                this.Frame.Navigate(typeof(ArticlePage), article);
+                break;
+            default:
+                break;
+            }
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var c = await AuthClient.FetchAsync();
+            c.WeChatAuth(this.Frame);
         }
     }
 }

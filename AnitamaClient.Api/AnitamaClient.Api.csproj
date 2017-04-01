@@ -120,7 +120,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="Collections\Reference{TKet,TValue}.cs" />
     <Compile Include="Guide.cs" />
-    <Compile Include="IncrementalLoadingCollection{T}.cs" />
+    <Compile Include="..bases\IncrementalLoadingCollection{T}.cs" />
     <Compile Include="..Interfaces\IPopulatable.cs" />
     <Compile Include="JsonConverters\ColorConverter.cs" />
     <Compile Include="JsonConverters\DateTimeConverter.cs" />
@@ -129,8 +129,8 @@
     <Compile Include="Image.cs" />
     <Compile Include="..Interfaces\IPrimeryKey.cs" />
     <Compile Include="JsonConverters\TimeSpanConverter.cs" />
-    <Compile Include="ObservableCollection{T}.cs" />
-    <Compile Include="ObservableObject.cs" />
+    <Compile Include="..bases\ObservableCollection{T}.cs" />
+    <Compile Include="..bases\ObservableObject.cs" />
     <Compile Include="Page.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\ReferenceDictionary{TKey,TValue}.cs" />

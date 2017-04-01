@@ -62,6 +62,7 @@ namespace AnitamaClient
             {
                 // 创建要充当导航上下文的框架，并导航到第一页
                 rootFrame = new Frame();
+                Navigator.Frame = rootFrame;
 
                 rootFrame.NavigationFailed += this.OnNavigationFailed;
 
@@ -81,7 +82,7 @@ namespace AnitamaClient
                     // 当导航堆栈尚未还原时，导航到第一页，
                     // 并通过将所需信息作为导航参数传入来配置
                     // 参数
-                    rootFrame.Navigate(typeof(MainPage), arguments);
+                    rootFrame.Navigate(typeof(Views.MainPage), arguments);
                 }
                 // 确保当前窗口处于活动状态
                 Window.Current.Activate();

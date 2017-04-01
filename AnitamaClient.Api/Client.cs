@@ -9,6 +9,7 @@ using Windows.Web.Http;
 using Windows.Web.Http.Filters;
 using Windows.Web.Http.Headers;
 using static System.Runtime.InteropServices.WindowsRuntime.AsyncInfo;
+using Windows.Storage;
 
 namespace AnitamaClient.Api
 {
@@ -35,11 +36,13 @@ namespace AnitamaClient.Api
             headers.UserAgent.Add(new HttpProductInfoHeaderValue("AppleWebKit", "537.36"));
             headers.UserAgent.Add(new HttpProductInfoHeaderValue("Chrome", "52.0.2743.116"));
             headers.UserAgent.Add(new HttpProductInfoHeaderValue("Safari", "537.36"));
-            //headers.UserAgent.Add(new HttpProductInfoHeaderValue("Anitama", "0.4.10"));
+            headers.UserAgent.Add(new HttpProductInfoHeaderValue("Anitama", "0.4.10"));
             headers.Accept.Add(new HttpMediaTypeWithQualityHeaderValue("*/*"));
             headers.AcceptLanguage.Add(new HttpLanguageRangeWithQualityHeaderValue("zh-Hans-CN"));
             headers.Connection.Add(new HttpConnectionOptionHeaderValue("Keep-Alive"));
-            headers["X-Agent"] = "application/0.4.10";
+            headers.Host = new Windows.Networking.HostName("app.anitama.net");
+            headers["X-Agent"] = "application/0.4.10:5312";
+            headers["X-Requested-With"] = "cn.anitama.tamako";
 
 
             //headers["X-User"] = "";
@@ -68,6 +71,14 @@ namespace AnitamaClient.Api
             var headers = this.HttpClient.DefaultRequestHeaders;
             headers["X-User"] = uId;
             headers["X-Token"] = token;
+            foreach(var item in this.Cookies.GetCookies(MainUri))
+            {
+                this.Cookies.DeleteCookie(item);
+            }
+            foreach(var item in this.Cookies.GetCookies(ApiUri))
+            {
+                this.Cookies.DeleteCookie(item);
+            }
             return true;
         }
 
@@ -112,6 +123,14 @@ namespace AnitamaClient.Api
                 token.Register(resT.Cancel);
                 var resp = await resT;
                 var str = await resp.Content.ReadAsStringAsync();
+                try
+                {
+                    var file = await DownloadsFolder.CreateFileAsync(uri.PathAndQuery.Replace('/', '.'), CreationCollisionOption.FailIfExists);
+                    await FileIO.WriteTextAsync(file, str);
+                }
+                catch(Exception)
+                {
+                }
                 var res = new Response<TData>(obj);
                 JsonConvert.PopulateObject(str, res, jsonSettings);
                 if(!res.Success)

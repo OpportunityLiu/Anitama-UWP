@@ -1,0 +1,28 @@
+﻿<Page x:Class="AnitamaClient.Views.ArticlePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:AnitamaClient.Views"
+      xmlns:controls="using:AnitamaClient.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+    <ScrollViewer Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="{x:Bind Article.Title, Mode=OneWay}" />
+            <TextBlock Grid.Row="1"
+                       Text="{x:Bind Article.Subtitle, Mode=OneWay}" />
+            <TextBlock Grid.Row="2"
+                       Text="{x:Bind Article.Author, Mode=OneWay}" />
+            <controls:HtmlViewer Grid.Row="3"
+                                 HtmlContent="{x:Bind Article.Content, Mode=OneWay}"
+                                 x:Name="hvContent" />
+        </Grid>
+    </ScrollViewer>
+</Page>

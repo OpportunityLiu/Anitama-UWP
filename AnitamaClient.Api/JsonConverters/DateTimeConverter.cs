@@ -37,7 +37,7 @@ namespace AnitamaClient.Api.JsonConverters
                     break;
                 throw new FormatException("Unsupported date format.");
             default:
-                throw new FormatException("Unsupported date format.");
+                return null;
             }
             if(isTypeDt)
                 return dt;

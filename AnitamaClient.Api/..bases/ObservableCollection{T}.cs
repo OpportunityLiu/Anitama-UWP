@@ -29,27 +29,27 @@ namespace AnitamaClient
             return true;
         }
 
-        protected bool Set<TProp>(ref TProp field, TProp value, string addtionalPropertyName, [CallerMemberName]string propertyName = null)
+        protected bool Set<TProp>(string addtionalPropertyName, ref TProp field, TProp value, [CallerMemberName]string propertyName = null)
         {
             if(Equals(field, value))
                 return false;
-            ForceSet(ref field, value, addtionalPropertyName, propertyName);
+            ForceSet(addtionalPropertyName, ref field, value, propertyName);
             return true;
         }
 
-        protected bool Set<TProp>(ref TProp field, TProp value, string addtionalPropertyName0, string addtionalPropertyName1, [CallerMemberName]string propertyName = null)
+        protected bool Set<TProp>(string addtionalPropertyName0, string addtionalPropertyName1, ref TProp field, TProp value, [CallerMemberName]string propertyName = null)
         {
             if(Equals(field, value))
                 return false;
-            ForceSet(ref field, value, addtionalPropertyName0, addtionalPropertyName1, propertyName);
+            ForceSet(addtionalPropertyName0, addtionalPropertyName1, ref field, value, propertyName);
             return true;
         }
 
-        protected bool Set<TProp>(ref TProp field, TProp value, IEnumerable<string> addtionalPropertyNames, [CallerMemberName]string propertyName = null)
+        protected bool Set<TProp>(IEnumerable<string> addtionalPropertyNames, ref TProp field, TProp value, [CallerMemberName]string propertyName = null)
         {
             if(Equals(field, value))
                 return false;
-            ForceSet(ref field, value, addtionalPropertyNames, propertyName);
+            ForceSet(addtionalPropertyNames, ref field, value, propertyName);
             return true;
         }
 
@@ -59,29 +59,22 @@ namespace AnitamaClient
             RaisePropertyChanged(propertyName);
         }
 
-        protected void ForceSet<TProp>(ref TProp field, TProp value, string addtionalPropertyName, [CallerMemberName]string propertyName = null)
+        protected void ForceSet<TProp>(string addtionalPropertyName, ref TProp field, TProp value, [CallerMemberName]string propertyName = null)
         {
             field = value;
-            RaisePropertyChanged(propertyName, addtionalPropertyName);
+            RaisePropertyChanged(addtionalPropertyName, propertyName);
         }
 
-        protected void ForceSet<TProp>(ref TProp field, TProp value, string addtionalPropertyName0, string addtionalPropertyName1, [CallerMemberName]string propertyName = null)
+        protected void ForceSet<TProp>(string addtionalPropertyName0, string addtionalPropertyName1, ref TProp field, TProp value, [CallerMemberName]string propertyName = null)
         {
             field = value;
-            RaisePropertyChanged(propertyName, addtionalPropertyName0, addtionalPropertyName1);
+            RaisePropertyChanged(addtionalPropertyName0, addtionalPropertyName1, propertyName);
         }
 
-        protected void ForceSet<TProp>(ref TProp field, TProp value, IEnumerable<string> addtionalPropertyNames, [CallerMemberName]string propertyName = null)
+        protected void ForceSet<TProp>(IEnumerable<string> addtionalPropertyNames, ref TProp field, TProp value, [CallerMemberName]string propertyName = null)
         {
             field = value;
-            DispatcherHelper.CheckBeginInvokeOnUI(() =>
-            {
-                base.OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
-                foreach(var item in addtionalPropertyNames)
-                {
-                    base.OnPropertyChanged(new PropertyChangedEventArgs(item));
-                }
-            });
+            RaisePropertyChanged(addtionalPropertyNames.Concat(Enumerable.Repeat(propertyName, 1)));
         }
 
         /// <summary>

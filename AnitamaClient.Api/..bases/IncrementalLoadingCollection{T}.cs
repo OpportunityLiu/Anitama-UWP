@@ -24,13 +24,13 @@ namespace AnitamaClient
         public int RecordCount
         {
             get => this.recordCount;
-            protected set => Set(ref this.recordCount, value, nameof(IsEmpty));
+            protected set => Set(nameof(IsEmpty), ref this.recordCount, value);
         }
 
         public int PageCount
         {
             get => this.pageCount;
-            protected set => Set(ref this.pageCount, value, nameof(HasMoreItems), nameof(LoadedPageCount));
+            protected set => Set(nameof(HasMoreItems), nameof(LoadedPageCount), ref this.pageCount, value);
         }
 
         protected abstract IAsyncOperation<IEnumerable<T>> LoadPageAsync(int pageIndex);
